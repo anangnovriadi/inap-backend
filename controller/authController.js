@@ -181,7 +181,7 @@ const register = async (req, res) => {
                 .then(() => {
                   console.log("Success create member customer");
                 });
-            } else if (req.body.role_id == 'Owner') {
+            } else if (req.body.role == 'Owner') {
               models.owner
                 .create({
                   user_id: result.id
