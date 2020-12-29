@@ -24,16 +24,18 @@ const createRoom = async (req, res) => {
 };
 
 const listRoom = async (req, res) => {
-  let room = await models.room.findAll({
+  let query = !req.body.owner_id ? {} : {
     where: {
       owner_id: req.body.owner_id
     }
-  })
+  };
+  let room = await models.room.findAll(query)
 
   let objectResponse = {
     error: false,
     message: room.length > 0 ? "Found" : "Not Found",
-    data: room
+    data: room,
+    count: room.length
   }
 
   return req.output(req, res, objectResponse, "info", 200);
