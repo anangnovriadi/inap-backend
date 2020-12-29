@@ -1,0 +1,65 @@
+{
+  "name": "templates-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "lint": "eslint --fix --ignore-path .gitignore .; exit 0",
+    "check-lint": "eslint --ignore-path .gitignore .; exit 0"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx}": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.{json,scss,yaml,yml}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/anangnov/templates-node"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "anangnovriadi",
+  "license": "ISC",
+  "homepage": "https://gitlab.com/anangnov/templates-node",
+  "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "moment": "^2.24.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "nangning-logger-color": "^1.2.0",
+    "node-cron": "^2.0.3",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.2",
+    "lint-staged": "^8.2.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^1.18.2"
+  }
+}
